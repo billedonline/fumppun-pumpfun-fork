@@ -1,0 +1,89 @@
+{
+"name": "amm_recycle",
+"instructions": [
+{ "name": "initializePool", "accounts": [
+{"name":"payer","isMut":true,"isSigner":true},
+{"name":"authority","isMut":false,"isSigner":true},
+{"name":"tokenAMint","isMut":false,"isSigner":false},
+{"name":"tokenBMint","isMut":false,"isSigner":false},
+{"name":"pool","isMut":true,"isSigner":false},
+{"name":"lpMint","isMut":true,"isSigner":false},
+{"name":"vaultA","isMut":true,"isSigner":false},
+{"name":"vaultB","isMut":true,"isSigner":false},
+{"name":"recycleLpVault","isMut":true,"isSigner":false},
+{"name":"systemProgram","isMut":false,"isSigner":false},
+{"name":"tokenProgram","isMut":false,"isSigner":false},
+{"name":"associatedTokenProgram","isMut":false,"isSigner":false},
+{"name":"rent","isMut":false,"isSigner":false}
+], "args": [{"name":"feeBps","type":"u16"}]},
+
+
+{ "name": "addLiquidity", "accounts": [
+{"name":"user","isMut":true,"isSigner":true},
+{"name":"pool","isMut":true,"isSigner":false},
+{"name":"lpMint","isMut":true,"isSigner":false},
+{"name":"vaultA","isMut":true,"isSigner":false},
+{"name":"vaultB","isMut":true,"isSigner":false},
+{"name":"userLpAta","isMut":true,"isSigner":false},
+{"name":"userAtaA","isMut":true,"isSigner":false},
+{"name":"userAtaB","isMut":true,"isSigner":false},
+{"name":"tokenAMint","isMut":false,"isSigner":false},
+{"name":"tokenBMint","isMut":false,"isSigner":false},
+{"name":"tokenProgram","isMut":false,"isSigner":false}
+], "args": [
+{"name":"amountA","type":"u64"},
+{"name":"amountB","type":"u64"},
+{"name":"minLp","type":"u64"}
+]},
+
+
+{ "name": "removeLiquidity", "accounts": [
+{"name":"user","isMut":true,"isSigner":true},
+{"name":"pool","isMut":true,"isSigner":false},
+{"name":"lpMint","isMut":true,"isSigner":false},
+{"name":"vaultA","isMut":true,"isSigner":false},
+{"name":"vaultB","isMut":true,"isSigner":false},
+{"name":"userLpAta","isMut":true,"isSigner":false},
+{"name":"userAtaA","isMut":true,"isSigner":false},
+{"name":"userAtaB","isMut":true,"isSigner":false},
+{"name":"tokenAMint","isMut":false,"isSigner":false},
+{"name":"tokenBMint","isMut":false,"isSigner":false},
+{"name":"tokenProgram","isMut":false,"isSigner":false}
+], "args": [
+{"name":"lpAmount","type":"u64"},
+{"name":"minA","type":"u64"},
+{"name":"minB","type":"u64"}
+]},
+
+
+{ "name": "swap", "accounts": [
+{"name":"user","isMut":true,"isSigner":true},
+{"name":"pool","isMut":true,"isSigner":false},
+{"name":"lpMint","isMut":true,"isSigner":false},
+{"name":"fromVault","isMut":true,"isSigner":false},
+{"name":"toVault","isMut":true,"isSigner":false},
+{"name":"userFromAta","isMut":true,"isSigner":false},
+{"name":"userToAta","isMut":true,"isSigner":false},
+{"name":"recycleLpVault","isMut":true,"isSigner":false},
+{"name":"tokenProgram","isMut":false,"isSigner":false}
+], "args": [
+{"name":"amountIn","type":"u64"},
+{"name":"minOut","type":"u64"}
+]}
+],
+
+
+"accounts": [
+{"name":"Pool","type":{"kind":"struct","fields":[
+{"name":"authority","type":"publicKey"},
+{"name":"tokenAMint","type":"publicKey"},
+{"name":"tokenBMint","type":"publicKey"},
+{"name":"vaultA","type":"publicKey"},
+{"name":"vaultB","type":"publicKey"},
+{"name":"lpMint","type":"publicKey"},
+{"name":"recycleLpVault","type":"publicKey"},
+{"name":"feeBps","type":"u16"},
+{"name":"bump","type":"u8"}
+]}}
+]
+}
