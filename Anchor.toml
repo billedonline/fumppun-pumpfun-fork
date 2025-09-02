@@ -1,0 +1,26 @@
+[features]
+seeds = true
+skip-lint = false
+
+
+[programs.localnet]
+amm_recycle = "AMMRecYc1e1111111111111111111111111111111111" # replace after deploy
+
+
+[programs.devnet]
+amm_recycle = "AMMRecYc1e1111111111111111111111111111111111" # replace after deploy
+
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+
+[scripts]
+build = "anchor build"
+deploy = "anchor deploy"
+test = "anchor test"
