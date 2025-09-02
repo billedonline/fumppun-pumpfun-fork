@@ -1,0 +1,5 @@
+[workspace]
+members = [
+"programs/amm-recycle",
+]
+resolver = "2"
